@@ -1,0 +1,83 @@
+@use '../node_modules/@angular/material' as mat;
+@include mat.core();
+
+$my-orange-palette: (
+  50 : #faebe2,
+  100 : #f2cdb6,
+  200 : #eaac85,
+  300 : #e28a54,
+  400 : #db712f,
+  500 : #d5580a,
+  600 : #d05009,
+  700 : #ca4707,
+  800 : #c43d05,
+  900 : #ba2d03,
+  A100 : #ffe8e3,
+  A200 : #ffbdb0,
+  A400 : #ff937d,
+  A700 : #ff7e63,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #000000,
+    400 : #000000,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #000000,
+    A700 : #000000,
+  )
+);
+
+$my-black-palette: (
+  50 : #e2e2e2,
+  100 : #b7b6b6,
+  200 : #878686,
+  300 : #575555,
+  400 : #333030,
+  500 : #211b1b,
+  600 : #0d0a0a,
+  700 : #0b0808,
+  800 : #080606,
+  900 : #040303,
+  A100 : #a6a6a6,
+  A200 : #8c8c8c,
+  A400 : #737373,
+  A700 : #666666,
+  contrast: (
+    50 : #000000,
+    100 : #000000,
+    200 : #000000,
+    300 : #ffffff,
+    400 : #ffffff,
+    500 : #ffffff,
+    600 : #ffffff,
+    700 : #ffffff,
+    800 : #ffffff,
+    900 : #ffffff,
+    A100 : #000000,
+    A200 : #000000,
+    A400 : #ffffff,
+    A700 : #ffffff,
+  )
+);
+
+$angulartheme-primary: mat.define-palette($my-orange-palette);
+$angulartheme-accent: mat.define-palette($my-black-palette, 500);
+
+$angulartheme-warn: mat.define-palette(mat.$red-palette);
+
+$angulartheme-theme: mat.define-light-theme((
+  color: (
+    primary: $angulartheme-primary,
+    accent: $angulartheme-accent,
+    warn: $angulartheme-warn,
+  )
+));
+
+@include mat.all-component-themes($angulartheme-theme);

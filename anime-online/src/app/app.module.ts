@@ -9,20 +9,47 @@ import { environment } from '../environments/environment';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
+import { MenuComponent } from './shared/menu/menu.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { MainComponent } from './pages/main/main.component';
+import { AnimesComponent } from './pages/animes/animes.component';
+import { AnimeViewComponent } from './pages/anime-view/anime-view.component';
+import { WatchComponent } from './pages/watch/watch.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
+import {MatSidenavModule} from "@angular/material/sidenav";
+import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatIconModule} from "@angular/material/icon";
+import {AngularFireModule} from "@angular/fire/compat";
+import {MatListModule} from "@angular/material/list";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent,
+    FooterComponent,
+    MainComponent,
+    AnimesComponent,
+    AnimeViewComponent,
+    WatchComponent,
+    NotFoundComponent
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage())
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        AngularFireModule.initializeApp(environment.firebase),
+        provideAuth(() => getAuth()),
+        provideFirestore(() => getFirestore()),
+        provideStorage(() => getStorage()),
+        MatSidenavModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatListModule,
+        FlexLayoutModule,
+        MatButtonModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
