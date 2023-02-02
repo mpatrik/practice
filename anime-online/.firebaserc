@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "anime-onlinehu": {
+      "hosting": {
+        "anime-online": [
+          "anime-onlinehu"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "anime-onlinehu"
+  }
+}

@@ -105,6 +105,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "anime-online:build:production",
+            "firebaseProject": "anime-onlinehu",
+            "firebaseHostingSite": "anime-onlinehu"
+          }
         }
       }
     }
