@@ -36,9 +36,19 @@ main {
 .title {
     font-size: 2rem;
     text-align: center;
+    position: relative;
 }
+.title::before, .title::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 100%;
+    background: var(--orange);
+}
+.title::before { left: 0; }
+.title::after { right: 0; }
 
-.title-eng, .introduction {
+.title-secondary, .introduction {
     color: var(--gray);
 }
 
@@ -70,7 +80,7 @@ main {
 h2 {
     font-size: 1.5rem;
     position: relative;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 h2::before {
@@ -91,8 +101,11 @@ h2::before {
 .single-episode {
     font-size: 1.1rem;
     text-decoration: none;
-    padding: .75rem 1.5rem;
+    padding-block: .75rem;
+    width: 100px;
+    text-align: center;
     background: #342b2b;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
 }
 
 .single-episode:hover {

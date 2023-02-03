@@ -6,19 +6,11 @@
     <main>
         <h2 class="series-title">Sorozatok</h2>
         <section class="anime-list">
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
+            <app-anime-card class="single-anime" *ngFor="let anime of animeSeries" [anime]="anime"></app-anime-card>
         </section>
         <h2 class="series-title movies-title">Filmek</h2>
-        <section class="anime-list">
-            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
+        <section class="anime-list movies">
+            <app-anime-card class="single-anime" *ngFor="let anime of animeMovies" [anime]="anime"></app-anime-card>
         </section>
     </main>
 

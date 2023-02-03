@@ -17,6 +17,12 @@
             <a class="next-ep" *ngIf="episode < anime.episodes.length" (click)="navigateToEpisode(episode+1)">{{episode+1}}.rész</a>
         </div>
         <iframe class="video" [src]="watchLink" allowfullscreen></iframe>
+        <section class="section-episodes">
+            <h2>Epizódok:</h2>
+            <div class="episodes">
+                <a class="single-episode" [href]="'/animek/'+anime.id+'/'+(index+1)" *ngFor="let episode of anime.episodes; index as index">{{index+1}}. rész</a>
+            </div>
+        </section>
     </main>
 
 </div>

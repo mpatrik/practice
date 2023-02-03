@@ -1,13 +1,13 @@
 main {
     width: 1300px;
-    margin: 5vh auto;
+    margin: 10vh auto;
 }
 
 .roots {
     display: flex;
     gap: .5rem;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
 }
 
 .roots a {
@@ -67,4 +67,41 @@ main {
     width: 100%;
     display: block;
     margin-inline: auto;
+}
+
+    /* episodes section */
+h2 {
+    font-size: 1.5rem;
+    position: relative;
+    margin-top: 5rem;
+    margin-bottom: 2rem;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    height: 100%;
+    width: .5rem;
+    background: var(--orange);
+}
+
+.episodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.single-episode {
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding-block: .75rem;
+    width: 100px;
+    text-align: center;
+    background: #342b2b;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+.single-episode:hover {
+    background: var(--orange);
 }

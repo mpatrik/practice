@@ -10,15 +10,24 @@ import {AnimeService} from "../../services/anime.service";
 export class AnimesComponent implements OnInit {
 
     animes: Array<Anime> = [];
+    animeSeries: Array<Anime> = [];
+    animeMovies: Array<Anime> = [];
 
     constructor(private animeService: AnimeService) { }
 
     ngOnInit(): void {
-        this.animeService.getAnimes().subscribe((data : any) => {
-            this.animes = data;
+        this.animeService.getAnimeSeries().subscribe((data : any) => {
+            this.animeSeries = data;
         }, (error : any) => {
             console.log(error);
         });
+
+        this.animeService.getAnimeMovies().subscribe((data : any) => {
+            this.animeMovies = data;
+        }, (error : any) => {
+            console.log(error);
+        });
+
     }
 
 }

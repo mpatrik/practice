@@ -16,6 +16,14 @@ export class AnimeService {
         return this.afs.collection<Array<Anime>>(this.collectionName, ref => ref.orderBy('title', 'asc')).valueChanges();
     }
 
+    getAnimeSeries() {
+        return this.afs.collection<Array<Anime>>(this.collectionName, ref => ref.where('type', '==', 'sorozat').orderBy('title', 'asc')).valueChanges();
+    }
+
+    getAnimeMovies() {
+        return this.afs.collection<Array<Anime>>(this.collectionName, ref => ref.where('type', '==', 'film').orderBy('title', 'asc')).valueChanges();
+    }
+
     getAnimeById(id: string) {
         return this.afs.doc<Anime>(this.collectionName + '/' + id).valueChanges();
     }

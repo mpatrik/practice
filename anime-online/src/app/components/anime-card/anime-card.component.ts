@@ -13,7 +13,7 @@ export class AnimeCardComponent implements OnInit {
     @Input() anime : Anime = {
         id: '',
         title: '',
-        titleEng: '',
+        titleSecondary: '',
         series: '',
         introduction: '',
         type: '',

@@ -1,7 +1,7 @@
 export interface Anime {
     id: string,
     title: string,
-    titleEng: string,
+    titleSecondary: string,
     series: string,
     introduction: string,
     type: string,

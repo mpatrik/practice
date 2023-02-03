@@ -14,7 +14,7 @@ export class WatchComponent implements OnInit {
     anime: Anime = {
         id: '',
         title: '',
-        titleEng: '',
+        titleSecondary: '',
         series: '',
         introduction: '',
         type: '',
