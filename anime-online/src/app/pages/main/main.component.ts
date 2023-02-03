@@ -14,7 +14,11 @@ export class MainComponent implements OnInit {
     constructor(private animeService: AnimeService) { }
 
     ngOnInit(): void {
-
+        this.animeService.getAnimes().subscribe((data: any) => {
+            this.animes = data;
+        }, (error: any) => {
+            console.log(error);
+        })
     }
 
 }

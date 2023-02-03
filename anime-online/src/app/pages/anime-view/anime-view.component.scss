@@ -1,0 +1,100 @@
+main {
+    width: 1300px;
+    margin: 5vh auto;
+}
+
+.roots {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+}
+
+.roots a {
+    text-decoration: none;
+}
+.roots a:hover {
+    color: var(--orange);
+    text-decoration: underline var(--orange);
+}
+
+.roots mat-icon:first-child {
+    transform: translateY(-2px);
+    color: var(--orange);
+}
+
+    /* details section */
+.details {
+    display: flex;
+    gap: 5rem;
+    margin-block: 5rem;
+}
+
+.image {
+    width: 300px;
+}
+
+.title {
+    font-size: 2rem;
+    text-align: center;
+}
+
+.title-eng, .introduction {
+    color: var(--gray);
+}
+
+.introduction {
+    font-size: 1.1rem;
+    line-height: 2rem;
+    margin-block: 2rem;
+}
+
+.information {
+    list-style: none;
+    font-size: 1.1rem;
+    line-height: 2rem;
+}
+
+.info {
+    display: inline-block;
+    width: 120px;
+    color: var(--gray);
+    opacity: .7;
+}
+
+.genre:not(:last-child)::after {
+    content: ', ';
+}
+
+
+    /* episodes section */
+h2 {
+    font-size: 1.5rem;
+    position: relative;
+    margin-bottom: 4rem;
+}
+
+h2::before {
+    content: '';
+    position: absolute;
+    left: -1rem;
+    height: 100%;
+    width: .5rem;
+    background: var(--orange);
+}
+
+.episodes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.single-episode {
+    font-size: 1.1rem;
+    text-decoration: none;
+    padding: .75rem 1.5rem;
+    background: #342b2b;
+}
+
+.single-episode:hover {
+    background: var(--orange);
+}

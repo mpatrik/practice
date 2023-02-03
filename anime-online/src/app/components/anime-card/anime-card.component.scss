@@ -1,0 +1,56 @@
+.card {
+    width: 225px;
+}
+
+.thumbnail {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.episodes {
+    display: inline-block;
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: .9rem;
+    padding: 1px 9px;
+    border-radius: 25px;
+    background: rgba(178, 34, 34, 0.6);
+    backdrop-filter: blur(5px);
+    z-index: 10;
+}
+
+.thumbnail img {
+    height: 325px;
+    width: 100%;
+    object-fit: cover;
+}
+
+.thumbnail:hover {
+    scale: 1.1;
+}
+
+.anime-title {
+    display: block;
+    text-decoration: none;
+    font-size: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    margin-top: 1rem;
+}
+.anime-title::first-letter { text-transform: uppercase; }
+
+.genres {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .5rem;
+}
+
+.single-genre {
+    font-size: .7rem;
+    background: rgba(213, 88, 10, 0.7);
+    border-radius: 25px;
+    padding: 1px 6px;
+}

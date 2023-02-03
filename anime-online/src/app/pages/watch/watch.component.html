@@ -1,1 +1,22 @@
-<p>watch works!</p>
+<div class="container">
+
+    <main>
+        <section class="roots">
+            <mat-icon>home</mat-icon>
+            <a href="/kezdolap">Kezdőlap</a>
+            <mat-icon>navigate_next</mat-icon>
+            <a href="/animek">Animék</a>
+            <mat-icon>navigate_next</mat-icon>
+            <a [href]="'/animek/'+anime.id">{{anime.title}}</a>
+        </section>
+        <h1 class="title">{{anime.title}} {{episode}}. rész - magyar {{anime.watchMode}}</h1>
+        <div class="buttons">
+            <a class="previous-ep" *ngIf="episode==1">-</a>
+            <a class="previous-ep" *ngIf="episode > 1" (click)="navigateToEpisode(episode-1)">{{episode-1}}. rész</a>
+            <a class="next-ep" *ngIf="episode==anime.episodes.length">-</a>
+            <a class="next-ep" *ngIf="episode < anime.episodes.length" (click)="navigateToEpisode(episode+1)">{{episode+1}}.rész</a>
+        </div>
+        <iframe class="video" [src]="watchLink" allowfullscreen></iframe>
+    </main>
+
+</div>

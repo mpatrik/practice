@@ -1,0 +1,70 @@
+main {
+    width: 1300px;
+    margin: 5vh auto;
+}
+
+.roots {
+    display: flex;
+    gap: .5rem;
+    align-items: center;
+    margin-bottom: 5rem;
+}
+
+.roots a {
+    text-decoration: none;
+}
+.roots a:hover {
+    color: var(--orange);
+    text-decoration: underline var(--orange);
+}
+
+.roots mat-icon:first-child {
+    transform: translateY(-2px);
+    color: var(--orange);
+}
+
+.title {
+    position: relative;
+}
+.title::after {
+    content: '';
+    position: absolute;
+    height: .25rem;
+    width: 100%;
+    bottom: -.25rem;
+    left: 0;
+    background: var(--orange);
+}
+
+.buttons {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.previous-ep, .next-ep {
+    text-decoration: none;
+    font-size: 1.1rem;
+    padding-block: .75rem;
+    width: 100px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.previous-ep {
+    background: firebrick;
+}
+
+.next-ep {
+    background: darkgreen;
+}
+
+
+.video {
+    border: none;
+    height: 700px;
+    width: 100%;
+    display: block;
+    margin-inline: auto;
+}

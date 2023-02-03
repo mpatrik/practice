@@ -1,1 +1,52 @@
-<p>anime-view works!</p>
+<div class="container">
+
+    <main>
+        <section class="roots">
+            <mat-icon>home</mat-icon>
+            <a href="/kezdolap">Kezdőlap</a>
+            <mat-icon>navigate_next</mat-icon>
+            <a href="/animek">Animék</a>
+            <mat-icon>navigate_next</mat-icon>
+            <span>{{anime.title}}</span>
+        </section>
+        <section class="details">
+            <div>
+                <img class="image" [src]="image" alt="{{anime.title}}">
+            </div>
+            <div>
+                <h1 class="title">{{anime.title}}</h1>
+                <div class="title-eng">{{anime.titleEng}}</div>
+                <p class="introduction">{{anime.introduction}}</p>
+                <ul class="information">
+                    <li>
+                        <span class="info type">Típus:</span>
+                        <span>{{anime.type}}</span>
+                    </li>
+                    <li>
+                        <span class="info completion">Állapot:</span>
+                        <span>{{anime.completion}}</span>
+                    </li>
+                    <li>
+                        <span class="info date">Megjelenés:</span>
+                        <span>{{anime.date}}</span>
+                    </li>
+                    <li>
+                        <span class="info eps">Epizódok:</span>
+                        <span>{{anime.episodes.length}}/{{anime.episodeNumber}}</span>
+                    </li>
+                    <li>
+                        <span class="info genres">Műfajok:</span>
+                        <span class="genre" *ngFor="let genre of anime.genres">{{genre}}</span>
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section class="section-episodes">
+            <h2>Epizódok:</h2>
+            <div class="episodes">
+                <a class="single-episode" routerLink="{{index+1}}" *ngFor="let episode of anime.episodes; index as index">{{index+1}}. rész</a>
+            </div>
+        </section>
+    </main>
+
+</div>

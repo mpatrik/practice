@@ -15,6 +15,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/anime-view/anime-view.module').then(m =>  m.AnimeViewModule)
     },
     {
+        path: 'animek/:id/:episode',
+        loadChildren: () => import('./pages/watch/watch.module').then(m => m.WatchModule)
+    },
+    {
         path: 'not-found',
         loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
     },
