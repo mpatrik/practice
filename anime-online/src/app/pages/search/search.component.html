@@ -1,0 +1,14 @@
+<div class="container">
+
+    <header class="header">
+        <h1 class="title">kíváncsi vagyok!</h1>
+    </header>
+    <main>
+        <p class="search">Keresés: {{searchInput}}</p>
+        <h2>Találatok: {{searchResult.length}}</h2>
+        <p class="no-result" *ngIf="searchResult.length == 0">Sajnáljuk! Nem találtható a keresésnek megfelelő anime.</p>
+        <section class="anime-list">
+            <app-anime-card class="single-anime" *ngFor="let anime of searchResult" [anime]="anime"></app-anime-card>
+        </section>
+    </main>
+</div>

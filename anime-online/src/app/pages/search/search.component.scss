@@ -1,7 +1,8 @@
 .header {
     height: 40vh;
-    background: url("../../../assets/header_kaori.jpg") no-repeat;
+    background: url("../../../assets/header_chitanda_eru.jpg") no-repeat;
     background-size: cover;
+    background-position-y: -5vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,7 +16,12 @@
     border-radius: 50px;
     background: rgba(33, 27, 27, 0.2);
     backdrop-filter: blur(10px);
+    position: relative;
+    left: 10vw;
 }
+.title::before { content: open-quote; }
+.title::after { content: close-quote; }
+
 
 main {
     width: 80vw;
@@ -23,13 +29,16 @@ main {
     margin-inline: auto;
 }
 
-.series-title {
+.search {
+    color: var(--gray);
+    margin-bottom: 1.5rem;
+}
+
+h2 {
     font-size: 1.5rem;
     padding-left: .8rem;
     border-left: .5rem solid var(--orange);
 }
-
-
 
 .anime-list {
     display: flex;
@@ -38,6 +47,13 @@ main {
     justify-content: center;
 }
 
-.movies-title {
-    margin-top: 10rem;
+.no-result {
+    font-size: 2rem;
+    color: firebrick;
+    text-align: center;
+    width: fit-content;
+    padding: 1rem;
+    margin-top: 1rem;
+    margin-inline: auto;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
 }

@@ -47,6 +47,12 @@
                 <a class="single-episode" [href]="'/animek/'+anime.id+'/'+(index+1)" *ngFor="let episode of anime.episodes; index as index">{{index+1}}. rész</a>
             </div>
         </section>
+        <section class="related-animes" *ngIf="relatedAnimes.length>0">
+            <h2>Kapcsolódó művek:</h2>
+            <div class="anime-list">
+                <app-anime-card class="single-related-anime" *ngFor="let related of relatedAnimes" [anime]="related"></app-anime-card>
+            </div>
+        </section>
     </main>
 
 </div>

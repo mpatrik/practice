@@ -1,6 +1,7 @@
 main {
     width: 1300px;
-    margin: 10vh auto;
+    margin-top: 10vh;
+    margin-inline: auto;
 }
 
 .roots {
@@ -72,18 +73,10 @@ main {
     /* episodes section */
 h2 {
     font-size: 1.5rem;
-    position: relative;
+    padding-left: .8rem;
+    border-left: .5rem solid var(--orange);
     margin-top: 5rem;
     margin-bottom: 2rem;
-}
-
-h2::before {
-    content: '';
-    position: absolute;
-    left: -1rem;
-    height: 100%;
-    width: .5rem;
-    background: var(--orange);
 }
 
 .episodes {

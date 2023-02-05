@@ -14,11 +14,15 @@
             </div>
             <!-- hamburger vége -->
             <!-- asztali navbar -->
-            <div class="logo">anime online</div>
+            <div class="logo" routerLink="/kezdolap">anime online</div>
             <nav class="navigation" fxHide.sm fxHide.xs>
                 <a class="nav-link" routerLink="/kezdolap" routerLinkActive="active-route">kezdőlap</a>
                 <a class="nav-link" routerLink="/animek" routerLinkActive="active-route">animék</a>
             </nav>
+            <div class="searchbar" fxHide.sm fxHide.xs>
+                <a class="search-btn" [href]="'/kereses/'+searchInput"><mat-icon>search</mat-icon></a>
+                <input class="search-input" type="text" [(ngModel)]="searchInput"  placeholder="cím...">
+            </div>
             <!-- asztali navbar vége -->
         </mat-toolbar>
         <router-outlet></router-outlet>

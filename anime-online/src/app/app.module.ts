@@ -23,6 +23,9 @@ import {MatListModule} from "@angular/material/list";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatButtonModule} from "@angular/material/button";
 import { AnimeCardComponent } from './components/anime-card/anime-card.component';
+import {MatInputModule} from "@angular/material/input";
+import {FormsModule} from "@angular/forms";
+import { SearchComponent } from './pages/search/search.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +37,8 @@ import { AnimeCardComponent } from './components/anime-card/anime-card.component
     AnimeViewComponent,
     WatchComponent,
     NotFoundComponent,
-    AnimeCardComponent
+    AnimeCardComponent,
+    SearchComponent
   ],
     imports: [
         BrowserModule,
@@ -49,7 +53,9 @@ import { AnimeCardComponent } from './components/anime-card/anime-card.component
         MatIconModule,
         MatListModule,
         FlexLayoutModule,
-        MatButtonModule
+        MatButtonModule,
+        MatInputModule,
+        FormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

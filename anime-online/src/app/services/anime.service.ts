@@ -24,6 +24,27 @@ export class AnimeService {
         return this.afs.collection<Array<Anime>>(this.collectionName, ref => ref.where('type', '==', 'film').orderBy('title', 'asc')).valueChanges();
     }
 
+    getAnimesBySeries(series: string) {
+        return this.afs.collection<Array<Anime>>(this.collectionName, ref => ref.where('series', '==', series).orderBy('title', 'asc')).valueChanges();
+    }
+
+    getAnimesBySearch(searchInput: string) {
+        searchInput = searchInput.toLowerCase();
+        let result: Array<Anime> = [];
+        this.getAnimes().subscribe((data: any) => {
+            for (let anime of data) {
+                if (anime.title.toLowerCase().includes(searchInput) ||
+                    anime.titleSecondary.toLowerCase().includes(searchInput) ||
+                    anime.series.toLowerCase().includes(searchInput)) {
+                    result.push(anime);
+                }
+            }
+        }, (error: any) => {
+            console.log(error);
+        });
+        return result;
+    }
+
     getAnimeById(id: string) {
         return this.afs.doc<Anime>(this.collectionName + '/' + id).valueChanges();
     }

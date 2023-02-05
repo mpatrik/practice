@@ -39,12 +39,14 @@ export class WatchComponent implements OnInit {
         this.activatedRoute.paramMap.subscribe((data: any) => {
             id = data.params.id;
             this.episode = Number(data.params.episode);
+            if (!this.episode) this.router.navigateByUrl('not-found', {skipLocationChange: true});
         }, (error: any) => {
             console.log(error);
         });
 
         this.animeService.getAnimeById(id).subscribe((data: any) => {
             this.anime = data;
+            if (this.episode < 1 || this.episode > this.anime.episodes.length) this.router.navigateByUrl('not-found', {skipLocationChange: true});
             this.watchLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.anime.episodes[this.episode-1]);
         }, (error: any) => {
             console.log(error);

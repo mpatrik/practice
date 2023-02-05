@@ -19,6 +19,10 @@ const routes: Routes = [
         loadChildren: () => import('./pages/watch/watch.module').then(m => m.WatchModule)
     },
     {
+        path: 'kereses/:searchInput',
+        loadChildren: () => import('./pages/search/search.module').then(m => m.SearchModule)
+    },
+    {
         path: 'not-found',
         loadChildren: () => import('./pages/not-found/not-found.module').then(m => m.NotFoundModule)
     },

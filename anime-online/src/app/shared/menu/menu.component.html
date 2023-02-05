@@ -4,7 +4,12 @@
         <span>kezdőlap</span>
     </a>
     <a mat-list-item routerLink="/animek" (click)="close()">
-        <mat-icon>storefront</mat-icon>
+        <mat-icon>play_circle</mat-icon>
         <span>animék</span>
     </a>
 </mat-nav-list>
+
+<div class="searchbar">
+    <a class="search-btn" [href]="'/kereses/'+searchInput"><mat-icon>search</mat-icon></a>
+    <input class="search-input" type="text" [(ngModel)]="searchInput"  placeholder="cím...">
+</div>

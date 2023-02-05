@@ -1,1 +1,17 @@
-<p>not-found works!</p>
+<div class="container">
+
+    <header class="header"></header>
+
+    <main class="not-found">
+        <h1 fxHide.sm fxHide.xs>Hoppá! Az oldal nem található!</h1>
+        <div fxHide.gt-sm>
+            <p>Hoppá!</p>
+            <p>Az oldal nem található!</p>
+        </div>
+        <button class="back-button" mat-raised-button color="primary" (click)="goBack()">
+            <mat-icon class="arrow-back">arrow_back</mat-icon>
+            <span>vissza</span>
+        </button>
+    </main>
+
+</div>

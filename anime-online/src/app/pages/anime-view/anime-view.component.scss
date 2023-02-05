@@ -36,17 +36,11 @@ main {
 .title {
     font-size: 2rem;
     text-align: center;
-    position: relative;
+    border-left: solid var(--orange);
+    border-right: solid var(--orange);
+    border-width: 1rem;
+
 }
-.title::before, .title::after {
-    content: '';
-    position: absolute;
-    width: 1rem;
-    height: 100%;
-    background: var(--orange);
-}
-.title::before { left: 0; }
-.title::after { right: 0; }
 
 .title-secondary, .introduction {
     color: var(--gray);
@@ -79,18 +73,11 @@ main {
     /* episodes section */
 h2 {
     font-size: 1.5rem;
-    position: relative;
+    padding-left: .8rem;
+    border-left: .5rem solid var(--orange);
     margin-bottom: 2rem;
 }
 
-h2::before {
-    content: '';
-    position: absolute;
-    left: -1rem;
-    height: 100%;
-    width: .5rem;
-    background: var(--orange);
-}
 
 .episodes {
     display: flex;
@@ -111,3 +98,18 @@ h2::before {
 .single-episode:hover {
     background: var(--orange);
 }
+
+
+    /* related animes section */
+.related-animes {
+    margin-top: 5rem;
+}
+
+.anime-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+}
+
+
