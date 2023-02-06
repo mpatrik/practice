@@ -20,8 +20,8 @@
                 <a class="nav-link" routerLink="/animek" routerLinkActive="active-route">animék</a>
             </nav>
             <div class="searchbar" fxHide.sm fxHide.xs>
+                <input class="search-input" id="search-input" type="text" [(ngModel)]="searchInput"  placeholder="cím...">
                 <a class="search-btn" [href]="'/kereses/'+searchInput"><mat-icon>search</mat-icon></a>
-                <input class="search-input" type="text" [(ngModel)]="searchInput"  placeholder="cím...">
             </div>
             <!-- asztali navbar vége -->
         </mat-toolbar>
@@ -29,4 +29,5 @@
     </mat-sidenav-content>
 </mat-sidenav-container>
 <app-footer></app-footer>
+
 

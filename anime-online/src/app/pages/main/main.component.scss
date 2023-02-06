@@ -1,0 +1,32 @@
+.header {
+    height: 60vh;
+    background: url("../../../assets/header_ichigo.jpg") no-repeat;
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: -5rem;
+}
+
+main {
+    width: 80vw;
+    margin-top: 5rem;
+    margin-inline: auto;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding-left: .8rem;
+    border-left: .5rem solid var(--orange);
+}
+
+.anime-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+}
+
+@media (max-width: 1100px) {
+    .header {
+        background-position-y: initial;
+    }
+}

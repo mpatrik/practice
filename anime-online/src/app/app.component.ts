@@ -7,25 +7,23 @@ import {Router} from "@angular/router";
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements AfterContentInit{
+export class AppComponent implements AfterContentInit {
     title = 'anime-online';
 
     @Input() searchInput?: string;
 
-    constructor(private router: Router) {
-    }
+    constructor(private router: Router) { }
 
     ngAfterContentInit() {
-        let searchbar = document.querySelector('.search-input');
+        let searchbar = document.getElementById('search-input');
         searchbar?.addEventListener('keypress', (e) => {
-            // @ts-ignore
             if (e.key === 'Enter') {
                 this.router.navigateByUrl('kereses/'+this.searchInput)
                     .then(() => {
                         window.location.reload();
                     });
             }
-        })
+        });
     }
 
 

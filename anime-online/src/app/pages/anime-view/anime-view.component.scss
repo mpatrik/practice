@@ -5,6 +5,7 @@ main {
 
 .roots {
     display: flex;
+    flex-wrap: wrap;
     gap: .5rem;
     align-items: center;
 }
@@ -39,7 +40,7 @@ main {
     border-left: solid var(--orange);
     border-right: solid var(--orange);
     border-width: 1rem;
-
+    padding-inline: .5rem;
 }
 
 .title-secondary, .introduction {
@@ -113,3 +114,25 @@ h2 {
 }
 
 
+    /* responsive */
+@media (max-width: calc(1300px / 0.9)) {
+    main {
+        width: 90%;
+    }
+}
+
+@media (max-width: 850px) {
+    .details {
+        flex-direction: column;
+    }
+    .image {
+        display: block;
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: calc(300px / 0.9)) {
+    .image {
+        width: 100%;
+    }
+}

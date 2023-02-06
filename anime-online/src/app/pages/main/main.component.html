@@ -1,5 +1,11 @@
 <div class="container">
 
-    <p>main works!</p>
+    <header class="header"></header>
+    <main>
+        <h2>Kedvenceim</h2>
+        <section class="anime-list">
+            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
+        </section>
+    </main>
 
 </div>

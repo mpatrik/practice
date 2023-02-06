@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Anime} from "../../shared/models/Anime";
 import {AnimeService} from "../../services/anime.service";
 
@@ -15,10 +15,18 @@ export class MainComponent implements OnInit {
 
     ngOnInit(): void {
         this.animeService.getAnimes().subscribe((data: any) => {
-            this.animes = data;
+            for (let anime of data) {
+                if (anime.series.includes('bleach') ||
+                    anime.series.includes('jujutsu kaisen') ||
+                    anime.series.includes('classroom of the elite') || anime.series.includes('horimiya') ||
+                    anime.series.includes('your lie in april')) {
+                    this.animes.push(anime);
+                }
+            }
         }, (error: any) => {
             console.log(error);
-        })
-    }
+        });
 
+
+    }
 }

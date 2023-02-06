@@ -66,19 +66,23 @@ mat-sidenav { background: #342b2b; }
     /* searchbar */
 .searchbar {
     position: relative;
-    margin-left: 3rem;
+    margin-left: auto;
     background: var(--white);
     border-radius: 25px;
 }
 
 .search-input {
     color: var(--black);
+    background: transparent;
     font-size: 1.2rem;
     border: none;
     outline: none;
     display: inline-block;
     height: 100%;
-    width: 80%;
+    width: 87%;
+    padding: .3rem .3rem;
+    border-radius: 25px;
+    transform: translate(8px, -2px);
 }
 
 .search-btn {
@@ -88,15 +92,15 @@ mat-sidenav { background: #342b2b; }
     background: var(--black);
     display: inline-block;
     padding: .3rem .7rem;
-    border-radius: 25px 0 0 25px;
-    transform: translateX(-5px);
+    border-radius: 0 25px 25px 0;
+    transform: translateX(1rem);
 }
 
 .search-btn mat-icon {
     color: var(--white);
     position: relative;
-    top: 6px;
-    left: 2px;
+    top: 5px;
+    left: -4px;
 }
 .search-btn:hover mat-icon {
     color: var(--orange);

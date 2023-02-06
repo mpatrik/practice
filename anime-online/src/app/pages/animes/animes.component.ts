@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Anime} from "../../shared/models/Anime";
 import {AnimeService} from "../../services/anime.service";
 
@@ -29,5 +29,6 @@ export class AnimesComponent implements OnInit {
         });
 
     }
+
 
 }

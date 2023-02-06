@@ -16,16 +16,15 @@ export class MenuComponent implements OnInit, AfterContentInit {
     ngOnInit(): void { }
 
     ngAfterContentInit() {
-        let searchbar = document.querySelector('.search-input');
+        let searchbar = document.getElementById('search-input-mobile');
         searchbar?.addEventListener('keypress', (e) => {
-            // @ts-ignore
             if (e.key === 'Enter') {
                 this.router.navigateByUrl('kereses/'+this.searchInput)
                     .then(() => {
                         window.location.reload();
                     });
             }
-        })
+        });
     }
 
 
