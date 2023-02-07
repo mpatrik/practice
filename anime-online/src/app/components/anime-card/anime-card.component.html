@@ -1,10 +1,10 @@
 <article class="card">
-    <a class="thumbnail" [href]="'animek/'+anime.id">
+    <a class="thumbnail" [href]="'adatlap/'+anime.id">
         <span class="episodes">{{anime.episodes.length}}/{{anime.episodeNumber}}</span>
         <img [src]="thumbnail" draggable="false" alt="{{anime.title}}">
     </a>
     <section class="genres">
         <div class="single-genre" *ngFor="let genre of anime.genres">{{genre}}</div>
     </section>
-    <a class="anime-title" [href]="'animek/'+anime.id">{{anime.title}}</a>
+    <a class="anime-title" [href]="'adatlap/'+anime.id">{{anime.title}}</a>
 </article>

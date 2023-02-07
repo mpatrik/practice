@@ -18,6 +18,7 @@ mat-sidenav { background: #342b2b; }
 }
 
 .logo {
+    display: block;
     font-size: 1.5rem;
     font-weight: 700;
     text-transform: uppercase;
@@ -35,14 +36,13 @@ mat-sidenav { background: #342b2b; }
 }
 
 .nav-link {
+    display: inline-block;
     font-size: 1.25rem;
     text-decoration: none;
     padding-block: 1rem;
     transition: all .3s;
     position: relative;
 }
-
-.nav-link::first-letter { text-transform: uppercase; }
 
 .nav-link::after {
     content: '';
@@ -61,6 +61,55 @@ mat-sidenav { background: #342b2b; }
 
 .nav-link:hover::after, .active-route::after {
     transform: scaleX(1);
+}
+
+.expand {
+    display: inline-block;
+    position: relative;
+    top: 5px;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.animek:hover .expand,
+.animek .nav-link:hover .expand,
+.dropdown:hover .expand,
+.expand:hover {
+    transform: rotate(-180deg);
+}
+
+    /* dropdown */
+.animek { position: relative; }
+.dropdown {
+    position: absolute;
+    width: 230px;
+    left: -80px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    background: var(--white);
+    box-shadow: 0 0 10px 1px var(--black);
+    transform: scaleY(0);
+    opacity: 0;
+    pointer-events: none;
+    transform-origin: top;
+    transition: .3s;
+    z-index: 999;
+}
+
+.dropdown-link {
+    color: var(--black);
+    text-decoration: none;
+    padding-block: .5rem;
+}
+.dropdown-link:hover {
+    background: var(--orange);
+}
+
+.animek:hover .dropdown {
+    transform: scaleY(1);
+    opacity: 1;
+    pointer-events: initial;
 }
 
     /* searchbar */

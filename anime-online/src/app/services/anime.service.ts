@@ -28,6 +28,10 @@ export class AnimeService {
         return this.afs.collection<Array<Anime>>(this.collectionName, ref => ref.where('series', '==', series).orderBy('title', 'asc')).valueChanges();
     }
 
+    getAnimeSeriesByCompletion(completion: string) {
+        return this.afs.collection<Array<Anime>>(this.collectionName, ref => ref.where('type', '==', 'sorozat').where('completion', '==', completion).orderBy('title', 'asc')).valueChanges();
+    }
+
     getAnimesBySearch(searchInput: string) {
         searchInput = searchInput.toLowerCase();
         let result: Array<Anime> = [];

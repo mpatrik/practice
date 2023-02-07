@@ -7,7 +7,7 @@
             <mat-icon>navigate_next</mat-icon>
             <a href="/animek">Animék</a>
             <mat-icon>navigate_next</mat-icon>
-            <a [href]="'/animek/'+anime.id">{{anime.title}}</a>
+            <a [href]="'/adatlap/'+anime.id">{{anime.title}}</a>
         </section>
         <h1 class="title">{{anime.title}} {{episode}}. rész - magyar {{anime.watchMode}}</h1>
         <div class="buttons">
@@ -20,7 +20,7 @@
         <section class="section-episodes">
             <h2>Epizódok:</h2>
             <div class="episodes">
-                <a class="single-episode" [href]="'/animek/'+anime.id+'/'+(index+1)" *ngFor="let episode of anime.episodes; index as index">{{index+1}}. rész</a>
+                <a class="single-episode" [href]="'/adatlap/'+anime.id+'/'+(index+1)" *ngFor="let episode of anime.episodes; index as index">{{index+1}}. rész</a>
             </div>
         </section>
     </main>

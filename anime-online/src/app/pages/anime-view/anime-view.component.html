@@ -44,7 +44,7 @@
         <section class="section-episodes">
             <h2>Epizódok:</h2>
             <div class="episodes">
-                <a class="single-episode" [href]="'/animek/'+anime.id+'/'+(index+1)" *ngFor="let episode of anime.episodes; index as index">{{index+1}}. rész</a>
+                <a class="single-episode" [href]="'/adatlap/'+anime.id+'/'+(index+1)" *ngFor="let episode of anime.episodes; index as index">{{index+1}}. rész</a>
             </div>
         </section>
         <section class="related-animes" *ngIf="relatedAnimes.length>0">

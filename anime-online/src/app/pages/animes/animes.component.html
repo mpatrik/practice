@@ -4,12 +4,12 @@
         <h1 class="title">animék magyarul</h1>
     </header>
     <main>
-        <h2 class="series-title">Sorozatok</h2>
-        <section class="anime-list">
+        <h2 class="series-title" *ngIf="animeSeries.length">{{seriesTitle}}</h2>
+        <section class="anime-list" *ngIf="animeSeries.length">
             <app-anime-card class="single-anime" *ngFor="let anime of animeSeries" [anime]="anime"></app-anime-card>
         </section>
-        <h2 class="series-title movies-title">Filmek</h2>
-        <section class="anime-list movies">
+        <h2 class="series-title movies-title" *ngIf="animeMovies.length">Filmek</h2>
+        <section class="anime-list movies" *ngIf="animeMovies.length">
             <app-anime-card class="single-anime" *ngFor="let anime of animeMovies" [anime]="anime"></app-anime-card>
         </section>
     </main>

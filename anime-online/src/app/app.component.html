@@ -14,10 +14,18 @@
             </div>
             <!-- hamburger vége -->
             <!-- asztali navbar -->
-            <div class="logo" routerLink="/kezdolap">anime online</div>
+            <a class="logo" href="/kezdolap">anime online</a>
             <nav class="navigation" fxHide.sm fxHide.xs>
-                <a class="nav-link" routerLink="/kezdolap" routerLinkActive="active-route">kezdőlap</a>
-                <a class="nav-link" routerLink="/animek" routerLinkActive="active-route">animék</a>
+                <a class="nav-link" routerLink="/kezdolap" routerLinkActive="active-route">Kezdőlap</a>
+                <section class="animek">
+                    <a class="nav-link" routerLink="/animek" routerLinkActive="active-route">Animék</a>
+                    <mat-icon class="expand" routerLink="/animek">expand_more</mat-icon>
+                    <div class="dropdown">
+                        <a class="dropdown-link" href="animek/futo_sorozatok">Aktuális szériák</a>
+                        <a class="dropdown-link" href="animek/befejezett_sorozatok">Befejezett sorozatok</a>
+                        <a class="dropdown-link" href="animek/filmek">Filmek</a>
+                    </div>
+                </section>
             </nav>
             <div class="searchbar" fxHide.sm fxHide.xs>
                 <input class="search-input" id="search-input" type="text" [(ngModel)]="searchInput"  placeholder="cím...">

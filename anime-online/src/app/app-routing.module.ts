@@ -11,11 +11,15 @@ const routes: Routes = [
         loadChildren: () => import('./pages/animes/animes.module').then(m => m.AnimesModule)
     },
     {
-        path: 'animek/:id',
+        path: 'animek/:completion',
+        loadChildren: () => import('./pages/animes/animes.module').then(m => m.AnimesModule)
+    },
+    {
+        path: 'adatlap/:id',
         loadChildren: () => import('./pages/anime-view/anime-view.module').then(m =>  m.AnimeViewModule)
     },
     {
-        path: 'animek/:id/:episode',
+        path: 'adatlap/:id/:episode',
         loadChildren: () => import('./pages/watch/watch.module').then(m => m.WatchModule)
     },
     {

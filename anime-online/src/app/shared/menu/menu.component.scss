@@ -1,7 +1,10 @@
 
-mat-nav-list {
-    width: 40vw;
-    margin-top: 2rem;
+.close {
+    font-size: 2.5rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    margin-top: 1rem;
+    margin-left: 8px;
 }
 
 mat-icon, span {
@@ -41,7 +44,7 @@ span {
     cursor: pointer;
     background: var(--black);
     display: inline-block;
-    padding: .3rem .7rem;
+    padding: .4rem .7rem;
     border-radius: 25px 0 0 25px;
     transform: translateX(-5px);
 }
@@ -54,4 +57,13 @@ span {
 }
 .search-btn:hover mat-icon {
     color: var(--orange);
+}
+
+.sublink {
+    margin-left: 1rem;
+}
+
+mat-icon {
+    position: relative;
+    top: -2px;
 }

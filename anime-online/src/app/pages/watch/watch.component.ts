@@ -54,7 +54,7 @@ export class WatchComponent implements OnInit {
     }
 
     navigateToEpisode(episode: number) {
-        this.router.navigate(['animek/'+this.anime.id+'/'+episode])
+        this.router.navigate(['adatlap/'+this.anime.id+'/'+episode])
             .then(() => {
                 window.location.reload();
             });
