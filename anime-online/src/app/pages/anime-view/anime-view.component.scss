@@ -18,8 +18,11 @@ main {
     text-decoration: underline var(--orange);
 }
 
-.roots mat-icon:first-child {
+.roots mat-icon {
     transform: translateY(-2px);
+}
+
+.roots mat-icon:first-child {
     color: var(--orange);
 }
 

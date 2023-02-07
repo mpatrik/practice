@@ -37,7 +37,7 @@ mat-sidenav { background: #342b2b; }
 
 .nav-link {
     display: inline-block;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     text-decoration: none;
     padding-block: 1rem;
     transition: all .3s;
@@ -47,7 +47,7 @@ mat-sidenav { background: #342b2b; }
 .nav-link::after {
     content: '';
     position: absolute;
-    bottom: .5rem;
+    bottom: 1rem;
     left: 0;
     height: .25rem;
     width: 100%;
@@ -98,6 +98,7 @@ mat-sidenav { background: #342b2b; }
 }
 
 .dropdown-link {
+    font-size: 1.1rem;
     color: var(--black);
     text-decoration: none;
     padding-block: .5rem;

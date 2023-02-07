@@ -15,6 +15,7 @@ export class MainComponent implements OnInit {
 
     ngOnInit(): void {
         this.animeService.getAnimes().subscribe((data: any) => {
+            this.animes = [];
             for (let anime of data) {
                 if (anime.series.includes('bleach') ||
                     anime.series.includes('jujutsu kaisen') ||

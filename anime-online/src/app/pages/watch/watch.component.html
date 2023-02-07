@@ -7,6 +7,8 @@
             <mat-icon>navigate_next</mat-icon>
             <a href="/animek">Animék</a>
             <mat-icon>navigate_next</mat-icon>
+            <a [href]="'/animek/' + completionLink">{{completionLinkContent}}</a>
+            <mat-icon>navigate_next</mat-icon>
             <a [href]="'/adatlap/'+anime.id">{{anime.title}}</a>
         </section>
         <h1 class="title">{{anime.title}} {{episode}}. rész - magyar {{anime.watchMode}}</h1>

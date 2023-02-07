@@ -28,6 +28,8 @@ export class WatchComponent implements OnInit {
     }
     watchLink?: SafeResourceUrl;
     episode: number = 0;
+    completionLink: string = '';
+    completionLinkContent: string = '';
 
     constructor(private animeService: AnimeService,
                 private router: Router,
@@ -48,6 +50,20 @@ export class WatchComponent implements OnInit {
             this.anime = data;
             if (this.episode < 1 || this.episode > this.anime.episodes.length) this.router.navigateByUrl('not-found', {skipLocationChange: true});
             this.watchLink = this.sanitizer.bypassSecurityTrustResourceUrl(this.anime.episodes[this.episode-1]);
+
+            if (this.anime.type === 'sorozat') {
+                if (this.anime.completion === 'befejezett') {
+                    this.completionLink = 'befejezett_sorozatok';
+                    this.completionLinkContent = 'Befejezett sorozatok';
+                } else {
+                    this.completionLink = 'futo_sorozatok';
+                    this.completionLinkContent = 'Aktuális szériák';
+                }
+            } else {
+                this.completionLink = 'filmek';
+                this.completionLinkContent = 'Filmek';
+            }
+
         }, (error: any) => {
             console.log(error);
         });

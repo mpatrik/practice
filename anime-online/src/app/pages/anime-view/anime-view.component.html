@@ -7,6 +7,8 @@
             <mat-icon>navigate_next</mat-icon>
             <a href="/animek">Animék</a>
             <mat-icon>navigate_next</mat-icon>
+            <a [href]="'/animek/' + completionLink">{{completionLinkContent}}</a>
+            <mat-icon>navigate_next</mat-icon>
             <span>{{anime.title}}</span>
         </section>
         <section class="details">

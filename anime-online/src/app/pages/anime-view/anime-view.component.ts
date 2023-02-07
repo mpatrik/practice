@@ -27,6 +27,8 @@ export class AnimeViewComponent implements OnInit {
     }
     image: string = '';
     relatedAnimes: Array<Anime> = [];
+    completionLink: string = '';
+    completionLinkContent: string = '';
 
     constructor(private router: Router,
                 private animeService: AnimeService,
@@ -43,7 +45,18 @@ export class AnimeViewComponent implements OnInit {
         this.animeService.getAnimeById(id).subscribe((data: any) => {
             this.anime = data;
             if(!this.anime) this.router.navigateByUrl('not-found', {skipLocationChange: true});
-
+            if (this.anime.type === 'sorozat') {
+                if (this.anime.completion === 'befejezett') {
+                    this.completionLink = 'befejezett_sorozatok';
+                    this.completionLinkContent = 'Befejezett sorozatok';
+                } else {
+                    this.completionLink = 'futo_sorozatok';
+                    this.completionLinkContent = 'Aktuális szériák';
+                }
+            } else {
+                this.completionLink = 'filmek';
+                this.completionLinkContent = 'Filmek';
+            }
 
             this.animeService.getAnimesBySeries(this.anime.series).subscribe((data: any) => {
                 for (let anime of data) {
