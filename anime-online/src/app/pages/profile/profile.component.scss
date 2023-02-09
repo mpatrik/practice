@@ -1,0 +1,50 @@
+.header {
+    height: 40vh;
+    background: url("../../../assets/header_gojo_satoru.jpg") center -10vh no-repeat;
+    background-size: cover;
+}
+
+main {
+    width: 1300px;
+    margin: 5rem auto;
+}
+
+h1 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 5rem;
+}
+
+.data {
+    display: flex;
+    gap: 5rem;
+}
+
+.profile-pic {
+    width: 350px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 800px) {
+    .header {
+        background-position-y: initial;
+    }
+}

@@ -24,8 +24,10 @@ import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatButtonModule} from "@angular/material/button";
 import { AnimeCardComponent } from './components/anime-card/anime-card.component';
 import {MatInputModule} from "@angular/material/input";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { SearchComponent } from './pages/search/search.component';
+import { SignupComponent } from './pages/signup/signup.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +40,9 @@ import { SearchComponent } from './pages/search/search.component';
     WatchComponent,
     NotFoundComponent,
     AnimeCardComponent,
-    SearchComponent
+    SearchComponent,
+    SignupComponent,
+    ProfileComponent
   ],
     imports: [
         BrowserModule,
@@ -55,7 +59,8 @@ import { SearchComponent } from './pages/search/search.component';
         FlexLayoutModule,
         MatButtonModule,
         MatInputModule,
-        FormsModule
+        FormsModule,
+        ReactiveFormsModule
     ],
   providers: [],
   bootstrap: [AppComponent]

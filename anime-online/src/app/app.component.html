@@ -31,6 +31,29 @@
                 <input class="search-input" id="search-input" type="text" [(ngModel)]="searchInput"  placeholder="cím...">
                 <a class="search-btn" [href]="'/kereses/'+searchInput"><mat-icon>search</mat-icon></a>
             </div>
+            <section class="user-action">
+                <mat-icon class="user-icon" *ngIf="!loggedInUser" (click)="show()">account_circle</mat-icon>
+                <div class="user-dropdown">
+                    <div class="login-form" *ngIf="!loggedInUser">
+                        <mat-form-field>
+                            <mat-label for="email">Email: </mat-label>
+                            <input matInput type="email" id="email" [formControl]="email" required>
+                        </mat-form-field>
+                        <mat-form-field>
+                            <mat-label for="password">Jelszó: </mat-label>
+                            <input matInput type="password" id="password" [formControl]="password" required>
+                        </mat-form-field>
+                        <div class="user-buttons">
+                            <div>
+                                <span>Még nem regisztráltál? </span>
+                                <a href="/regisztracio">Katt ide</a>
+                            </div>
+                            <button class="login-button" (click)="login()">belépés</button>
+                        </div>
+                    </div>
+                </div>
+                <mat-icon class="logout-icon" *ngIf="loggedInUser" (click)="logout()">logout</mat-icon>
+            </section>
             <!-- asztali navbar vége -->
         </mat-toolbar>
         <router-outlet></router-outlet>

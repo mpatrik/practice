@@ -1,0 +1,59 @@
+.header {
+    height: 40vh;
+    background: url("../../../assets/header_gojo_satoru.jpg") center -10vh no-repeat;
+    background-size: cover;
+}
+
+.signup-container {
+    background: #342b2b ;
+    text-align: center;
+    width: 500px;
+    margin: 5rem auto;
+    padding: 1rem;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+}
+
+mat-form-field { position: relative; }
+
+.error {
+    position: absolute;
+    top: -.5rem;
+    right: 0;
+    color: var(--red);
+}
+
+.pw-requirement {
+    text-align: left;
+    color: var(--gray);
+    font-size: .7rem;
+    position: relative;
+    top: -.7rem;
+}
+
+.submit {
+    width: fit-content;
+    background: var(--orange);
+    border: none;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
+    color: var(--white);
+    font-size: 1rem;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+.submit:hover {
+    background: rgba(213, 88, 10, 0.7);
+}
+
+
+@media (max-width: 800px) {
+    .header {
+        background-position-y: initial;
+    }
+}

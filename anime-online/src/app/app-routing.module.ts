@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import {AuthGuard} from "./services/auth.guard";
+import {LoggedInAuthGuard} from "./services/logged-in-auth.guard";
 
 const routes: Routes = [
     {
@@ -9,6 +11,16 @@ const routes: Routes = [
     {
         path: 'animek',
         loadChildren: () => import('./pages/animes/animes.module').then(m => m.AnimesModule)
+    },
+    {
+        path: 'regisztracio',
+        loadChildren: () => import('./pages/signup/signup.module').then(m => m.SignupModule),
+        canActivate: [LoggedInAuthGuard]
+    },
+    {
+        path: 'profil',
+        loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule),
+        canActivate: [AuthGuard]
     },
     {
         path: 'animek/:completion',

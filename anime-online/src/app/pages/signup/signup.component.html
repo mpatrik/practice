@@ -1,0 +1,33 @@
+<div class="container">
+
+    <header class="header"></header>
+
+    <article class="signup-container">
+        <h1>Regisztráció</h1>
+        <form class="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+            <mat-form-field>
+                <mat-label for="username">Felhasználónév: </mat-label>
+                <span class="error" *ngIf="false">rossz felhasználó</span>
+                <input matInput id="username" type="text" formControlName="username" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="email">Email: </mat-label>
+                <span class="error" *ngIf="!emailFormat">Nem megfelelő email!</span>
+                <input matInput id="email" type="email" formControlName="email" required>
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label for="password">Jelszó: </mat-label>
+                <span class="error" *ngIf="!passwordLength">Rövid jelszó!</span>
+                <input matInput id="password" type="password"  formControlName="password" required>
+            </mat-form-field>
+            <span class="pw-requirement">legalább 8 karakter hosszú jelszó</span>
+            <mat-form-field>
+                <mat-label for="rePassword">Jelszó megerősítése: </mat-label>
+                <span class="error" *ngIf="!passwordMatch">Jelszó nem egyezik!</span>
+                <input matInput id="rePassword" type="password"  formControlName="rePassword" required>
+            </mat-form-field>
+            <button class="submit" type="submit">Regisztrálok</button>
+        </form>
+    </article>
+
+</div>

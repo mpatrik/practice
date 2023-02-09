@@ -18,12 +18,12 @@ export class SearchComponent implements OnInit {
     ngOnInit(): void {
         this.activatedRoute.paramMap.subscribe((data: any) => {
             this.searchInput = data.params.searchInput;
-
         }, (error: any) => {
             console.log(error);
         });
         if (this.searchInput === 'undefined') this.searchInput = '';
         else this.searchResult = this.animeService.getAnimesBySearch(this.searchInput);
+
     }
 
 }
