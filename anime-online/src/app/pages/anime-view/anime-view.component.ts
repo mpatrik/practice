@@ -1,14 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
 import {AnimeService} from "../../services/anime.service";
 import {Anime} from "../../shared/models/Anime";
 import {ActivatedRoute, Router} from "@angular/router";
+import {User} from "../../shared/models/User";
+import {AuthService} from "../../services/auth.service";
+import {UserService} from "../../services/user.service";
 
 @Component({
     selector: 'app-anime-view',
     templateUrl: './anime-view.component.html',
     styleUrls: ['./anime-view.component.scss']
 })
-export class AnimeViewComponent implements OnInit {
+export class AnimeViewComponent implements OnInit, AfterContentInit {
 
     anime: Anime = {
         id: '',
@@ -29,10 +32,23 @@ export class AnimeViewComponent implements OnInit {
     relatedAnimes: Array<Anime> = [];
     completionLink: string = '';
     completionLinkContent: string = '';
+    user: User = {
+        id: '',
+        email: '',
+        username: '',
+        megnezendo: [],
+        tervezem: [],
+        gondolkozokRajta: [],
+        megneztem: [],
+        kedvenc: [],
+    };
+    isUser?: firebase.default.User | null;
 
     constructor(private router: Router,
                 private animeService: AnimeService,
-                private activatedRoute: ActivatedRoute) { }
+                private activatedRoute: ActivatedRoute,
+                private authService: AuthService,
+                private userService: UserService) { }
 
     ngOnInit(): void {
         let id = '';
@@ -73,9 +89,72 @@ export class AnimeViewComponent implements OnInit {
             }, (error) => {
                 console.log(error);
             });
+
+            this.authService.isUserLoggedIn().subscribe(user => {
+                this.isUser = user;
+                localStorage.setItem('user', JSON.stringify(this.isUser));
+                // @ts-ignore
+                this.userService.getById(user.uid).subscribe(res => {
+                    // @ts-ignore
+                    this.user = res;
+                }, error => {
+                    console.error(error);
+                });
+
+
+                let categories = document.querySelector('.categories-section');
+                // @ts-ignore
+                if (this.isUser) categories.style.display = 'block';
+
+            }, error => {
+                console.error(error);
+                localStorage.setItem('user', JSON.stringify('null'));
+            });
         }, (error: any) => {
             console.log(error);
         });
+    }
+
+
+    ngAfterContentInit() {
+        let select = document.querySelector('.categories');
+        this.authService.isUserLoggedIn().subscribe((res: any) => {
+            this.userService.getById(res.uid).subscribe((user: any) => {
+
+                let value = '';
+                if (user.megnezendo.indexOf(this.anime.id) !== -1) {
+                    value = 'megnezendo';
+                } else if (user.tervezem.indexOf(this.anime.id) !== -1) {
+                    value = 'tervezem';
+                } else if (user.gondolkozokRajta.indexOf(this.anime.id) !== -1) {
+                    value = 'gondolkozokRajta';
+                } else if (user.megneztem.indexOf(this.anime.id) !== -1) {
+                    value = 'megneztem';
+                } else if (user.kedvenc.indexOf(this.anime.id) !== -1) {
+                    value = 'kedvenc';
+                }
+
+                // @ts-ignore
+                for (let item of select) {
+                    if (item.value === value) {
+                        item.setAttribute('selected', 'true');
+                        break;
+                    }
+                }
+
+
+                select?.addEventListener('change', () =>{
+
+                });
+
+
+            }, (error: any) => {
+                console.error(error);
+            });
+        }, (error: any) => {
+            console.error(error);
+        });
+
     }
 
 }

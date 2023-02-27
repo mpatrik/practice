@@ -35,13 +35,12 @@ export class SignupComponent implements OnInit {
         this.passwordMatch = true;
         this.passwordLength = true;
         if (this.signUpForm.get('password')?.value && this.signUpForm.get('rePassword')?.value && this.signUpForm.get('email')?.value && this.signUpForm.get('username')?.value &&
-            this.signUpForm.get('password')?.value === this.signUpForm.get('rePassword')?.value && this.signUpForm.get('email')?.value.split('@').length === 2) {
+            this.signUpForm.get('password')?.value === this.signUpForm.get('rePassword')?.value && this.signUpForm.get('password')?.value.length >= 8 && this.signUpForm.get('email')?.value.split('@').length === 2) {
             this.authService.signup(this.signUpForm.get('email')?.value, this.signUpForm.get('password')?.value).then(cred => {
                 const user: User = {
                     id: cred.user?.uid as string,
                     email: this.signUpForm.get('email')?.value,
                     username: this.signUpForm.get('username')?.value,
-                    profilePic: '../../../assets/basic_profile.jpg',
                     megnezendo: [],
                     tervezem: [],
                     gondolkozokRajta: [],
@@ -55,7 +54,12 @@ export class SignupComponent implements OnInit {
                     console.error(error);
                 });
 
-                this.router.navigateByUrl('/kezdolap');
+                this.authService.login(this.signUpForm.get('email')?.value, this.signUpForm.get('password')?.value).then(cred => {
+                    console.log('Successful login.');
+                    this.router.navigateByUrl('profil');
+                }).catch(error => {
+                    console.error(error);
+                });
             }).catch(error => {
                 console.error(error);
             });

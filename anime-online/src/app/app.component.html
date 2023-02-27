@@ -32,7 +32,7 @@
                 <a class="search-btn" [href]="'/kereses/'+searchInput"><mat-icon>search</mat-icon></a>
             </div>
             <section class="user-action">
-                <mat-icon class="user-icon" *ngIf="!loggedInUser" (click)="show()">account_circle</mat-icon>
+                <mat-icon class="user-icon" *ngIf="!loggedInUser" (click)="show()" title="bejelentkezés">person</mat-icon>
                 <div class="user-dropdown">
                     <div class="login-form" *ngIf="!loggedInUser">
                         <mat-form-field>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <mat-icon class="logout-icon" *ngIf="loggedInUser" (click)="logout()">logout</mat-icon>
+                <img class="profile-icon" [src]="user.profilePic ?? 'assets/basic_profile.jpg'" alt="" *ngIf="loggedInUser" routerLink="/profil" title="profil">
             </section>
             <!-- asztali navbar vége -->
         </mat-toolbar>

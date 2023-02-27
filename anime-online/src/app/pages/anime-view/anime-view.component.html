@@ -11,6 +11,16 @@
             <mat-icon>navigate_next</mat-icon>
             <span>{{anime.title}}</span>
         </section>
+        <section class="categories-section">
+            <select class="categories">
+                <option class="category" value="none" selected>-</option>
+                <option class="category" value="megnezendo">Megnézendő</option>
+                <option class="category" value="tervezem">Tervezem</option>
+                <option class="category" value="gondolkozokRajta">Gondolkozok rajta</option>
+                <option class="category" value="megneztem">Megnéztem</option>
+                <option class="category" value="kedvenc">Kedvenc</option>
+            </select>
+        </section>
         <section class="details">
             <div>
                 <img class="image" [src]="image" alt="{{anime.title}}">

@@ -26,6 +26,26 @@ main {
     color: var(--orange);
 }
 
+    /* categories */
+.categories-section {
+    margin-top: 2rem;
+    display: none;
+}
+
+.categories {
+    display: block;
+    margin-left: auto;
+    border: none;
+    background: #342b2b;
+    border-bottom: 1px solid var(--orange);
+    text-align: center;
+    font-size: 1rem;
+    padding: .5rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+}
+
+
     /* details section */
 .details {
     display: flex;

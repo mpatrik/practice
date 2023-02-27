@@ -18,10 +18,81 @@ h1 {
 .data {
     display: flex;
     gap: 5rem;
+    font-size: 1.1rem;
 }
+
+.image-div { position: relative; }
 
 .profile-pic {
     width: 350px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.logout, .edit {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    height: 3.5rem;
+    width: 3.5rem;
+    padding-left: 5px;
+    background: var(--orange);
+    border-radius: 50%;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+    margin-left: auto;
+    margin-bottom: 1rem;
+    cursor: pointer;
+}
+
+.logout {
+    margin-bottom: 3rem;
+}
+
+.edit {
+    border: none;
+    position: absolute;
+    bottom: -1rem;
+    right: -1.5rem;
+    padding-left: 3px;
+}
+
+.logout:hover {
+    background: rgba(213, 88, 10, 0.5);
+}
+
+.listing-header {
+    margin-block: 5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+h2 {
+    font-size: 1.5rem;
+    padding-left: .8rem;
+    border-left: .5rem solid var(--orange);
+}
+
+.categories {
+    margin-left: auto;
+    border: none;
+    background: #342b2b;
+    border-bottom: 1px solid var(--orange);
+    text-align: center;
+    font-size: 1rem;
+    padding: .5rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+    height: fit-content;
+}
+
+
+.anime-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+    justify-content: center;
+    margin-bottom: 10rem;
 }
 
 
@@ -31,20 +102,42 @@ h1 {
 
 
 
-
-
-
-
-
-
-
-
-
-
+@media (max-width: calc(1300px / .9)) {
+    main {
+        width: 90%;
+    }
+}
 
 
 @media (max-width: 800px) {
     .header {
         background-position-y: initial;
+    }
+}
+
+@media (max-width: 720px) {
+    .data {
+        flex-direction: column;
+    }
+
+    .image-div {
+        margin-inline: auto;
+    }
+}
+
+@media (max-width: 430px) {
+    .image-div {
+        width: 90%;
+    }
+    .profile-pic {
+        width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .edit {
+        scale: .8;
+        bottom: -1.5rem;
+        right: -1rem;
     }
 }

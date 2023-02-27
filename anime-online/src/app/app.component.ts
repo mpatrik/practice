@@ -5,6 +5,7 @@ import {FormControl} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {UserService} from "./services/user.service";
 import {doc} from "@angular/fire/firestore";
+import {User} from "./shared/models/User";
 
 @Component({
     selector: 'app-root',
@@ -20,6 +21,18 @@ export class AppComponent implements OnInit, AfterContentInit {
     loggedInUser?: firebase.default.User | null;
     loginError: boolean = false;
 
+    user: User = {
+        id: '',
+        email: '',
+        username: '',
+        profilePic: '',
+        megnezendo: [],
+        tervezem: [],
+        gondolkozokRajta: [],
+        megneztem: [],
+        kedvenc: [],
+    };
+
     constructor(private router: Router,
                 private authService: AuthService,
                 private userService: UserService) { }
@@ -28,6 +41,13 @@ export class AppComponent implements OnInit, AfterContentInit {
         this.authService.isUserLoggedIn().subscribe(user => {
             this.loggedInUser = user;
             localStorage.setItem('user', JSON.stringify(this.loggedInUser));
+            // @ts-ignore
+            this.userService.getById(user.uid).subscribe(res => {
+                // @ts-ignore
+                this.user = res;
+            }, error => {
+                console.error(error);
+            });
         }, error => {
             console.error(error);
             localStorage.setItem('user', JSON.stringify('null'));
@@ -36,6 +56,9 @@ export class AppComponent implements OnInit, AfterContentInit {
 
     ngAfterContentInit() {
         let searchbar = document.getElementById('search-input');
+        let emailInput = document.getElementById('email');
+        let passwordInput = document.getElementById('password');
+
         searchbar?.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
                 this.router.navigateByUrl('kereses/'+this.searchInput)
@@ -43,6 +66,14 @@ export class AppComponent implements OnInit, AfterContentInit {
                         window.location.reload();
                     });
             }
+        });
+
+        emailInput?.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') this.login();
+        });
+        passwordInput?.addEventListener('keypress', (e) => {
+            console.log('test');
+            if (e.key === 'Enter') this.login();
         });
     }
 
@@ -56,14 +87,12 @@ export class AppComponent implements OnInit, AfterContentInit {
 
         // @ts-ignore
         this.authService.login(this.email.value, this.password.value).then(cred => {
-            this.router.navigateByUrl('/kezdolap');
+            console.log('Successful login.');
+            window.location.reload();
         }).catch(error => {
             console.error(error);
             this.loginError = true;
         });
-
-        let userDropdown = document.querySelector('.user-dropdown');
-        userDropdown?.classList.toggle('show');
     }
 
     logout(_?: boolean) {

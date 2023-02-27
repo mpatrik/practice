@@ -57,3 +57,10 @@ mat-form-field { position: relative; }
         background-position-y: initial;
     }
 }
+
+@media (max-width: calc(500px/0.9)) {
+    .signup-container {
+        width: 90%;
+        overflow: clip;
+    }
+}

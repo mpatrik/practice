@@ -4,10 +4,32 @@
 
     <main>
         <h1>Üdvözlünk, {{user.username}}!</h1>
+        <mat-icon class="logout" (click)="logout()" routerLink="/kezdolap">logout</mat-icon>
         <div class="data">
-            <img class="profile-pic" src="{{user.profilePic}}" alt="">
-            <p class="email">email: {{user.email}}</p>
+            <div class="image-div">
+                <img class="profile-pic" [src]="user.profilePic ?? '../../../assets/basic_profile.jpg'" alt="">
+                <button class="edit" (click)="inputImage.click()"><mat-icon>edit</mat-icon></button>
+            </div>
+            <div>
+                <p class="email">email: {{user.email}}</p>
+            </div>
         </div>
+        <input #inputImage type="file" hidden>
+
+        <header class="listing-header">
+            <h2>Listázás</h2>
+            <select class="categories">
+                <option class="category" value="none" selected>-</option>
+                <option class="category" value="megnezendo">Megnézendő</option>
+                <option class="category" value="tervezem">Tervezem</option>
+                <option class="category" value="gondolkozokRajta">Gondolkozok rajta</option>
+                <option class="category" value="megneztem">Megnéztem</option>
+                <option class="category" value="kedvenc">Kedvenc</option>
+            </select>
+        </header>
+        <section class="anime-list">
+            <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
+        </section>
     </main>
 
 </div>

@@ -117,6 +117,7 @@ mat-sidenav { background: #342b2b; }
 .searchbar {
     position: relative;
     margin-left: auto;
+    margin-right: 2.5rem;
     background: var(--white);
     border-radius: 25px;
 }
@@ -159,7 +160,7 @@ mat-sidenav { background: #342b2b; }
 
     /* user actions */
 .user-action {
-    margin-left: 5rem;
+    margin-left: auto;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -167,11 +168,20 @@ mat-sidenav { background: #342b2b; }
     position: relative;
 }
 
-.user-icon, .logout-icon {
+.user-icon {
     color: var(--white);
     font-size: 2rem;
     height: 2rem;
     width: 2rem;
+    cursor: pointer;
+}
+
+.profile-icon {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: center;
     cursor: pointer;
 }
 
@@ -247,5 +257,11 @@ mat-sidenav { background: #342b2b; }
 @media (max-width: 959px) {
     .header {
         padding-inline: 1rem;
+    }
+}
+
+@media (max-width: 320px) {
+    .logo {
+        font-size: 1.3rem;
     }
 }
