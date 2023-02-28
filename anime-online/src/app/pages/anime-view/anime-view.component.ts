@@ -58,6 +58,7 @@ export class AnimeViewComponent implements OnInit, AfterContentInit {
             console.log(error);
         });
 
+
         this.animeService.getAnimeById(id).subscribe((data: any) => {
             this.anime = data;
             if(!this.anime) this.router.navigateByUrl('not-found', {skipLocationChange: true});
@@ -113,6 +114,7 @@ export class AnimeViewComponent implements OnInit, AfterContentInit {
         }, (error: any) => {
             console.log(error);
         });
+
     }
 
 
@@ -144,7 +146,8 @@ export class AnimeViewComponent implements OnInit, AfterContentInit {
 
 
                 select?.addEventListener('change', () =>{
-
+                    // @ts-ignore
+                    this.userService.listsUpdate(user, this.anime.id, value, select.value);
                 });
 
 

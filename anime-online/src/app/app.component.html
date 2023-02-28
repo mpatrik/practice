@@ -52,7 +52,7 @@
                         </div>
                     </div>
                 </div>
-                <img class="profile-icon" [src]="user.profilePic ?? 'assets/basic_profile.jpg'" alt="" *ngIf="loggedInUser" routerLink="/profil" title="profil">
+                <img class="profile-icon" [src]="user.profilePic ?? 'assets/basic_profile.jpg'" alt="" *ngIf="loggedInUser" title="profil" (click)="navigateToProfil()">
             </section>
             <!-- asztali navbar vége -->
         </mat-toolbar>

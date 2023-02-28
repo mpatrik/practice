@@ -4,9 +4,14 @@
     background-size: cover;
 }
 
-main {
+main article:first-child {
     width: 1300px;
     margin: 5rem auto;
+}
+
+.listing-container {
+    width: 80vw;
+    margin-inline: auto;
 }
 
 h1 {
@@ -67,6 +72,13 @@ h1 {
     justify-content: space-between;
 }
 
+.image-div + div span {
+    display: inline-block;
+    width: 120px;
+    color: var(--gray);
+    opacity: .7;
+}
+
 h2 {
     font-size: 1.5rem;
     padding-left: .8rem;
@@ -96,15 +108,9 @@ h2 {
 }
 
 
-
-
-
-
-
-
 @media (max-width: calc(1300px / .9)) {
-    main {
-        width: 90%;
+    main article {
+        width: 90% !important;
     }
 }
 
@@ -134,10 +140,25 @@ h2 {
     }
 }
 
+@media (max-width: 360px) {
+    .listing-header {
+        flex-direction: column;
+        justify-content: initial;
+    }
+
+    .categories {
+        margin-inline: auto;
+    }
+}
+
 @media (max-width: 320px) {
     .edit {
         scale: .8;
         bottom: -1.5rem;
         right: -1rem;
+    }
+
+    .image-div + div span {
+        width: 100px;
     }
 }

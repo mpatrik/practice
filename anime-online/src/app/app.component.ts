@@ -112,4 +112,11 @@ export class AppComponent implements OnInit, AfterContentInit {
             sidenav.close();
         }
     }
+
+    navigateToProfil() {
+        this.router.navigateByUrl('/profil').then(_ => {
+            window.location.reload();
+            }
+        );
+    }
 }
