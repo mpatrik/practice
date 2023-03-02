@@ -29,6 +29,7 @@ h1 {
 .image-div { position: relative; }
 
 .profile-pic {
+    height: 350px;
     width: 350px;
     object-fit: cover;
     object-position: center;
@@ -60,6 +61,34 @@ h1 {
     bottom: -1rem;
     right: -1.5rem;
     padding-left: 3px;
+}
+
+.upload-img {
+    font-size: 1rem;
+    display: block;
+    border: none;
+    background: #342b2b;
+    padding: .75rem 2rem;
+    margin-block: 1rem 2rem;
+    opacity: .3;
+    pointer-events: none;
+}
+
+.wrong-format {
+    color: var(--red);
+    font-size: 1rem;
+    display: none;
+}
+
+.upload-active:hover {
+    background: var(--orange);
+}
+
+.upload-active {
+    opacity: 1;
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    pointer-events: initial;
 }
 
 .logout:hover {

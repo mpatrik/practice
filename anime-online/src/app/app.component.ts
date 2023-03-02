@@ -6,6 +6,7 @@ import {AuthService} from "./services/auth.service";
 import {UserService} from "./services/user.service";
 import {doc} from "@angular/fire/firestore";
 import {User} from "./shared/models/User";
+import {AnimeService} from "./services/anime.service";
 
 @Component({
     selector: 'app-root',
@@ -32,10 +33,12 @@ export class AppComponent implements OnInit, AfterContentInit {
         megneztem: [],
         kedvenc: [],
     };
+    profilePic: string = '';
 
     constructor(private router: Router,
                 private authService: AuthService,
-                private userService: UserService) { }
+                private userService: UserService,
+                private animeService: AnimeService) { }
 
     ngOnInit() {
         this.authService.isUserLoggedIn().subscribe(user => {
@@ -45,6 +48,12 @@ export class AppComponent implements OnInit, AfterContentInit {
             this.userService.getById(user.uid).subscribe(res => {
                 // @ts-ignore
                 this.user = res;
+
+                this.animeService.loadImage(this.user.profilePic).subscribe((data: any) => {
+                    this.profilePic = data;
+                }, (error: any) => {
+                    console.error(error);
+                });
             }, error => {
                 console.error(error);
             });

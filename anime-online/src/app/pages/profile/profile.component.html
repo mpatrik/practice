@@ -5,18 +5,20 @@
     <main>
         <article>
             <h1>Üdvözlünk, {{user.username}}!</h1>
-            <mat-icon class="logout" (click)="logout()" routerLink="/kezdolap">logout</mat-icon>
+            <mat-icon class="logout" (click)="logout()" routerLink="/kezdolap" title="kijelentkezés">logout</mat-icon>
             <div class="data">
                 <div class="image-div">
-                    <img class="profile-pic" [src]="user.profilePic ?? '../../../assets/basic_profile.jpg'" alt="">
-                    <button class="edit" (click)="inputImage.click()"><mat-icon>edit</mat-icon></button>
+                    <img class="profile-pic" [src]="profilePic" alt="" draggable="false">
+                    <button class="edit" (click)="inputImage.click()" title="szerkesztés"><mat-icon>edit</mat-icon></button>
                 </div>
                 <div>
                     <p class="username"><span>felhasználó:</span>{{user.username}}</p>
                     <p class="email"><span>email:</span>{{user.email}}</p>
                 </div>
             </div>
-            <input #inputImage type="file" hidden>
+            <p class="wrong-format" id="wrong-format">Nem megfelelő fájlkiterjesztés!</p>
+            <button class="upload-img" (click)="addData()">Beállít</button>
+            <input #inputImage type="file" hidden (change)="chooseFile($event)">
         </article>
 
         <article class="listing-container">

@@ -4,6 +4,8 @@ import {User} from "../../shared/models/User";
 import {AuthService} from "../../services/auth.service";
 import {Anime} from "../../shared/models/Anime";
 import {AnimeService} from "../../services/anime.service";
+import {AngularFireStorage} from "@angular/fire/compat/storage";
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
     selector: 'app-profile',
@@ -23,10 +25,14 @@ export class ProfileComponent implements OnInit {
         kedvenc: [],
     };
     animes: Array<Anime> = [];
+    file: any = {};
+    profilePic: string = '';
 
     constructor(private authService: AuthService,
                 private userService: UserService,
-                private animeService: AnimeService) { }
+                private animeService: AnimeService,
+                private storage: AngularFireStorage,
+                private afs: AngularFirestore) { }
 
     ngOnInit(): void {
         this.authService.isUserLoggedIn().subscribe(user => {
@@ -34,6 +40,12 @@ export class ProfileComponent implements OnInit {
             this.userService.getById(user.uid).subscribe(res => {
                 // @ts-ignore
                 this.user = res;
+
+                this.animeService.loadImage(this.user.profilePic).subscribe((data: any) => {
+                    this.profilePic = data;
+                }, (error: any) => {
+                    console.error(error);
+                });
             }, error => {
                 console.error(error);
             });
@@ -67,15 +79,14 @@ export class ProfileComponent implements OnInit {
                 break;
         }
 
-        this.animes = this.animeService.getByArrayOfIds(tempArray.sort());
-        /*
+        this.animes = [];
         for (let animeID of tempArray.sort()) {
             this.animeService.getAnimeById(animeID).subscribe((res: any) => {
                 this.animes.push(res);
             }, (error: any) => {
                 console.error(error);
             });
-        }*/
+        }
 
     }
 
@@ -86,6 +97,34 @@ export class ProfileComponent implements OnInit {
         }).catch(error => {
             console.error(error);
         });
+    }
+
+
+    chooseFile(event: any) {
+        this.file = event.target.files[0];
+        let upload = document.querySelector('.upload-img');
+        upload?.classList.toggle('upload-active');
+    }
+
+    addData() {
+        let upload = document.querySelector('.upload-img');
+        upload?.classList.toggle('upload-active');
+        let formats = ['jpg', 'jpeg', 'png', 'svg', 'webp'];
+        let format = this.file.name.split('.')[1];
+        if (!formats.includes(format.toLowerCase())) {
+            console.error('Wrong format.');
+            let wrongFormat = document.getElementById('wrong-format');
+            if (wrongFormat) wrongFormat.style.display = 'block';
+            return;
+        }
+        let filename = this.user.id + '.jpg';
+
+        this.storage.upload('profilepics/' + filename, this.file);
+        this.afs.doc<User>('Users/' + this.user.id).update({
+            profilePic: 'profilepics/' + filename,
+        });
+
+
     }
 
 

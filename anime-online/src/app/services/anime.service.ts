@@ -53,17 +53,6 @@ export class AnimeService {
         return this.afs.doc<Anime>(this.collectionName + '/' + id).valueChanges();
     }
 
-    getByArrayOfIds(array: string[]) {
-        let result: any[] = [];
-        for (let id of array) {
-            this.getAnimeById(id).subscribe((data: any) => {
-                result.push(data);
-            }, (error: any) => {
-                console.error(error);
-            });
-        }
-        return result;
-    }
 
     loadImage(imageUrl: string | undefined) {
         return this.storage.ref(<string>imageUrl).getDownloadURL();

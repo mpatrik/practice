@@ -148,6 +148,8 @@ export class AnimeViewComponent implements OnInit, AfterContentInit {
                 select?.addEventListener('change', () =>{
                     // @ts-ignore
                     this.userService.listsUpdate(user, this.anime.id, value, select.value);
+                    let respond = document.getElementById('respond');
+                    if (respond) respond.style.display = 'block';
                 });
 
 
