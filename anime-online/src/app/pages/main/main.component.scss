@@ -1,14 +1,157 @@
 .header {
-    height: 60vh;
-    background: url("../../../assets/header_ichigo.jpg") center -5rem no-repeat;
-    background-size: cover;
+
 }
 
 main {
     width: 80vw;
-    margin-top: 5rem;
     margin-inline: auto;
 }
+
+
+.carousel {
+    margin: 5rem auto;
+    height: 600px;
+    width: 1300px;
+    position: relative;
+}
+
+.cell {
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 1.25s ease-in-out;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.cell img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.cell > div {
+    position: absolute;
+    bottom: 10rem;
+    left: 5rem;
+}
+
+.cell__title {
+    font-size: 3rem;
+    line-height: 3rem;
+    margin-bottom: 3rem;
+    text-shadow: 2px 2px black;
+    opacity: 0;
+    transform: translateY(-2rem);
+    transition: opacity .5s, transform 1.25s;
+}
+
+.cell__link {
+    display: block;
+    width: fit-content;
+    text-decoration: none;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    padding: .75rem 1.5rem;
+    background: var(--black);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .6);
+    opacity: 0;
+    transform: translateY(-4rem);
+    transition: opacity .5s, transform 1.25s;
+}
+
+.cell__link:hover {
+    color: var(--orange);
+}
+
+.carousel__radios {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    position: absolute;
+    bottom: 1rem;
+}
+
+.carousel__radios button {
+    height: .4rem;
+    width: 2.5rem;
+    background: rgba(213, 88, 10, 0.15);
+    box-shadow: 0 0 10px 1px rgba(0, 0, 0, .4);
+    border: 1px solid var(--orange);
+    cursor: pointer;
+    transition: all .5s;
+}
+
+.carousel__radios button:hover {
+    background: var(--orange) !important;
+}
+
+.previous-slide, .next-slide {
+    height: 70px;
+    width: 70px;
+    background: var(--black);
+    position: absolute;
+    top: calc(50% - 35px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotate(45deg);
+}
+
+.previous-slide {
+    left: -35px;
+}
+
+.next-slide {
+    right: -35px;
+}
+
+.previous-slide > button, .next-slide > button {
+    height: 85%;
+    width: 85%;
+    background: var(--orange);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+}
+
+.previous-slide mat-icon, .next-slide mat-icon {
+    height: 3rem;
+    width: 3rem;
+    font-size: 3rem;
+    transform: rotate(-45deg);
+}
+
+.previous-slide > button:hover, .next-slide > button:hover {
+    box-shadow: 0 0 25px 1px var(--black) inset;
+}
+
+
+
+
+.active-radio {
+    background: var(--orange) !important;
+}
+
+.active-slide {
+    opacity: 1;
+    pointer-events: initial;
+}
+
+.active-slide .cell__title, .active-slide .cell__link {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+
 
 h2 {
     font-size: 1.5rem;
@@ -23,8 +166,36 @@ h2 {
     justify-content: center;
 }
 
+
+@media (max-width: calc(1375px / .9)) {
+    .carousel {
+        width: 90%;
+    }
+}
+
 @media (max-width: 1100px) {
     .header {
         background-position-y: initial;
+    }
+}
+
+@media (max-width: 990px) {
+    .carousel {
+        height: 500px;
+        width: 80%;
+    }
+
+    .cell:nth-child(2) img {
+        object-position: 30%;
+    }
+}
+
+@media (max-width: 600px) {
+    .carousel {
+        display: none;
+    }
+
+    main {
+        margin-top: 5rem;
     }
 }

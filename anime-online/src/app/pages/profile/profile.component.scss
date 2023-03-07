@@ -26,7 +26,7 @@ h1 {
     font-size: 1.1rem;
 }
 
-.image-div { position: relative; }
+.image-div > div { position: relative; }
 
 .profile-pic {
     height: 350px;
@@ -63,6 +63,11 @@ h1 {
     padding-left: 3px;
 }
 
+.edit:hover {
+    background: rgba(213, 88, 10, 0.7);
+    backdrop-filter: blur(5px);
+}
+
 .upload-img {
     font-size: 1rem;
     display: block;
@@ -70,6 +75,7 @@ h1 {
     background: #342b2b;
     padding: .75rem 2rem;
     margin-block: 1rem 2rem;
+    margin-inline: auto;
     opacity: .3;
     pointer-events: none;
 }

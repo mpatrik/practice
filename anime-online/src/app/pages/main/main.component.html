@@ -1,8 +1,72 @@
 <div class="container">
 
-    <header class="header"></header>
+    <header class="header">
+        <section class="carousel" id="carousel">
+            <div class="cell active-slide" id="first">
+                <img src="assets/header_bleach.jpg" alt="" draggable="false">
+                <div>
+                    <p class="cell__title">Bleach: Thousand-Year Blood War</p>
+                    <a class="cell__link" href="/adatlap/bleach_thousand_year_blood_war">Megtekintés</a>
+                </div>
+            </div>
+            <div class="cell">
+                <img src="assets/header_kaori.jpg" alt="" draggable="false">
+                <div>
+                    <p class="cell__title">Your Lie in April</p>
+                    <a class="cell__link" href="/adatlap/your_lie_in_april">Megtekintés</a>
+                </div>
+            </div>
+            <div class="cell">
+                <img src="assets/header_chitanda_eru.jpg" alt="" draggable="false">
+                <div>
+                    <p class="cell__title">Hyouka</p>
+                    <a class="cell__link" href="/adatlap/hyouka">Megtekintés</a>
+                </div>
+            </div>
+            <div class="cell">
+                <img src="assets/header_gojo_satoru.jpg" alt="" draggable="false">
+                <div>
+                    <p class="cell__title">Jujutsu Kaisen 1. évad</p>
+                    <a class="cell__link" href="/adatlap/jujutsu_kaisen_1evad">Megtekintés</a>
+                </div>
+            </div>
+            <div class="cell">
+                <img src="assets/carousel_your_name.jpg" alt="" draggable="false">
+                <div>
+                    <p class="cell__title">Your Name.</p>
+                    <a class="cell__link" href="/adatlap/your_name">Megtekintés</a>
+                </div>
+            </div>
+            <div class="cell">
+                <img src="assets/ayanokoji.jpg" alt="" draggable="false">
+                <div>
+                    <p class="cell__title">Classroom of the Elite 1. évad</p>
+                    <a class="cell__link" href="/adatlap/classroom_of_the_elite_1evad">Megtekintés</a>
+                </div>
+            </div>
+            <div class="carousel__radios">
+                <button class="radio-1 active-radio" (click)="changeSlide(0)"></button>
+                <button class="radio-2" (click)="changeSlide(1)"></button>
+                <button class="radio-3" (click)="changeSlide(2)"></button>
+                <button class="radio-4" (click)="changeSlide(3)"></button>
+                <button class="radio-5" (click)="changeSlide(4)"></button>
+                <button class="radio-6" (click)="changeSlide(5)"></button>
+            </div>
+            <div class="previous-slide">
+                <button (click)="previousSlide()">
+                    <mat-icon>navigate_before</mat-icon>
+                </button>
+            </div>
+            <div class="next-slide">
+                <button (click)="nextSlide()">
+                    <mat-icon>navigate_next</mat-icon>
+                </button>
+            </div>
+        </section>
+    </header>
+
     <main>
-        <h2>Kedvenceim</h2>
+        <h2>Készítő kedvencei</h2>
         <section class="anime-list">
             <app-anime-card class="single-anime" *ngFor="let anime of animes" [anime]="anime"></app-anime-card>
         </section>

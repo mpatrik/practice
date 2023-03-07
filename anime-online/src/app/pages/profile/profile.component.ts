@@ -100,13 +100,8 @@ export class ProfileComponent implements OnInit {
     }
 
 
-    chooseFile(event: any) {
+    updateProfilePic(event: any) {
         this.file = event.target.files[0];
-        let upload = document.querySelector('.upload-img');
-        upload?.classList.toggle('upload-active');
-    }
-
-    addData() {
         let upload = document.querySelector('.upload-img');
         upload?.classList.toggle('upload-active');
         let formats = ['jpg', 'jpeg', 'png', 'svg', 'webp'];
@@ -123,8 +118,10 @@ export class ProfileComponent implements OnInit {
         this.afs.doc<User>('Users/' + this.user.id).update({
             profilePic: 'profilepics/' + filename,
         });
+    }
 
-
+    reloadPage() {
+        window.location.reload();
     }
 
 

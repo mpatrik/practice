@@ -8,8 +8,11 @@
             <mat-icon class="logout" (click)="logout()" routerLink="/kezdolap" title="kijelentkezés">logout</mat-icon>
             <div class="data">
                 <div class="image-div">
-                    <img class="profile-pic" [src]="profilePic" alt="" draggable="false">
-                    <button class="edit" (click)="inputImage.click()" title="szerkesztés"><mat-icon>edit</mat-icon></button>
+                    <div>
+                        <img class="profile-pic" [src]="profilePic" alt="" draggable="false">
+                        <button class="edit" (click)="inputImage.click()" title="szerkesztés"><mat-icon>edit</mat-icon></button>
+                    </div>
+                    <button class="upload-img" (click)="reloadPage()">mentés</button>
                 </div>
                 <div>
                     <p class="username"><span>felhasználó:</span>{{user.username}}</p>
@@ -17,8 +20,7 @@
                 </div>
             </div>
             <p class="wrong-format" id="wrong-format">Nem megfelelő fájlkiterjesztés!</p>
-            <button class="upload-img" (click)="addData()">Beállít</button>
-            <input #inputImage type="file" hidden (change)="chooseFile($event)">
+            <input #inputImage type="file" hidden (change)="updateProfilePic($event)">
         </article>
 
         <article class="listing-container">
