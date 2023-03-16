@@ -10,7 +10,7 @@ import {AnimeService} from "../../services/anime.service";
 export class MainComponent implements OnInit, AfterContentInit {
 
     animes: Array<Anime> = [];
-    slideIndex: number = 1;
+    slideIndex: number = 0;
 
     constructor(private animeService: AnimeService) { }
 
@@ -35,6 +35,8 @@ export class MainComponent implements OnInit, AfterContentInit {
         let slides = document.querySelectorAll('.cell');
         let radios = document.querySelectorAll('.carousel__radios button');
         setInterval(() => {
+            if (this.slideIndex < 5) this.slideIndex++;
+            else this.slideIndex = 0;
             slides[0].classList.remove('active-slide');
             slides[1].classList.remove('active-slide');
             slides[2].classList.remove('active-slide');
@@ -49,9 +51,6 @@ export class MainComponent implements OnInit, AfterContentInit {
             radios[4].classList.remove('active-radio');
             radios[5].classList.remove('active-radio');
             radios[this.slideIndex].classList.add('active-radio');
-
-            if (this.slideIndex < 5) this.slideIndex++;
-            else this.slideIndex = 0;
         }, 5000);
     }
 

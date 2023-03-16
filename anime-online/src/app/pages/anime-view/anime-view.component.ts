@@ -124,15 +124,15 @@ export class AnimeViewComponent implements OnInit, AfterContentInit {
             this.userService.getById(res.uid).subscribe((user: any) => {
 
                 let value = '';
-                if (user.megnezendo.indexOf(this.anime.id) !== -1) {
+                if (user.megnezendo.includes(this.anime.id)) {
                     value = 'megnezendo';
-                } else if (user.tervezem.indexOf(this.anime.id) !== -1) {
+                } else if (user.tervezem.includes(this.anime.id)) {
                     value = 'tervezem';
-                } else if (user.gondolkozokRajta.indexOf(this.anime.id) !== -1) {
+                } else if (user.gondolkozokRajta.includes(this.anime.id)) {
                     value = 'gondolkozokRajta';
-                } else if (user.megneztem.indexOf(this.anime.id) !== -1) {
+                } else if (user.megneztem.includes(this.anime.id)) {
                     value = 'megneztem';
-                } else if (user.kedvenc.indexOf(this.anime.id) !== -1) {
+                } else if (user.kedvenc.includes(this.anime.id)) {
                     value = 'kedvenc';
                 }
 

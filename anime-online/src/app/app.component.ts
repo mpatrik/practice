@@ -4,7 +4,6 @@ import {Router} from "@angular/router";
 import {FormControl} from "@angular/forms";
 import {AuthService} from "./services/auth.service";
 import {UserService} from "./services/user.service";
-import {doc} from "@angular/fire/firestore";
 import {User} from "./shared/models/User";
 import {AnimeService} from "./services/anime.service";
 
@@ -65,8 +64,6 @@ export class AppComponent implements OnInit, AfterContentInit {
 
     ngAfterContentInit() {
         let searchbar = document.getElementById('search-input');
-        let emailInput = document.getElementById('email');
-        let passwordInput = document.getElementById('password');
 
         searchbar?.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') {
@@ -76,12 +73,16 @@ export class AppComponent implements OnInit, AfterContentInit {
                     });
             }
         });
+    }
+
+    inputWatcher() {
+        let emailInput = document.getElementById('email');
+        let passwordInput = document.getElementById('password');
 
         emailInput?.addEventListener('keypress', (e) => {
             if (e.key === 'Enter') this.login();
         });
         passwordInput?.addEventListener('keypress', (e) => {
-            console.log('test');
             if (e.key === 'Enter') this.login();
         });
     }
@@ -93,6 +94,7 @@ export class AppComponent implements OnInit, AfterContentInit {
 
     login() {
         this.loginError = false;
+        let loginfail = document.getElementById('login-error');
 
         // @ts-ignore
         this.authService.login(this.email.value, this.password.value).then(cred => {
@@ -100,6 +102,7 @@ export class AppComponent implements OnInit, AfterContentInit {
             window.location.reload();
         }).catch(error => {
             console.error(error);
+            if (loginfail) loginfail.style.display = 'initial';
             this.loginError = true;
         });
     }

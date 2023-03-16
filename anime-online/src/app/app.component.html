@@ -14,7 +14,7 @@
             </div>
             <!-- hamburger vége -->
             <!-- asztali navbar -->
-            <a class="logo" href="/kezdolap">anime online</a>
+            <a class="logo" href="/kezdolap"><img src="assets/AnimeLogo.webp" alt=""></a>
             <nav class="navigation" fxHide.sm fxHide.xs>
                 <a class="nav-link" routerLink="/kezdolap" routerLinkActive="active-route">Kezdőlap</a>
                 <section class="animek">
@@ -32,16 +32,17 @@
                 <a class="search-btn" [href]="'/kereses/'+searchInput"><mat-icon>search</mat-icon></a>
             </div>
             <section class="user-action">
-                <mat-icon class="user-icon" *ngIf="!loggedInUser" (click)="show()" title="bejelentkezés">person</mat-icon>
+                <mat-icon class="user-icon" *ngIf="!loggedInUser" (click)="show()" title="bejelentkezés">login</mat-icon>
                 <div class="user-dropdown">
+                    <p class="login-error" id="login-error">Hibás email vagy jelszó!</p>
                     <div class="login-form" *ngIf="!loggedInUser">
                         <mat-form-field>
-                            <mat-label for="email">Email: </mat-label>
-                            <input matInput type="email" id="email" [formControl]="email" required>
+                            <mat-label>Email: </mat-label>
+                            <input matInput type="email" id="email" [formControl]="email" required (focus)="inputWatcher()">
                         </mat-form-field>
                         <mat-form-field>
-                            <mat-label for="password">Jelszó: </mat-label>
-                            <input matInput type="password" id="password" [formControl]="password" required>
+                            <mat-label>Jelszó: </mat-label>
+                            <input matInput type="password" id="password" [formControl]="password" required (focus)="inputWatcher()">
                         </mat-form-field>
                         <div class="user-buttons">
                             <div>

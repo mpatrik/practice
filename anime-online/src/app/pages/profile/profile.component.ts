@@ -117,6 +117,8 @@ export class ProfileComponent implements OnInit {
         this.storage.upload('profilepics/' + filename, this.file);
         this.afs.doc<User>('Users/' + this.user.id).update({
             profilePic: 'profilepics/' + filename,
+        }).then(_ => {
+            console.log('Profile updated.');
         });
     }
 

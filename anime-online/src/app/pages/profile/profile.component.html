@@ -6,20 +6,20 @@
         <article>
             <h1>Üdvözlünk, {{user.username}}!</h1>
             <mat-icon class="logout" (click)="logout()" routerLink="/kezdolap" title="kijelentkezés">logout</mat-icon>
+            <p class="wrong-format" id="wrong-format">Nem megfelelő fájlkiterjesztés!</p>
             <div class="data">
                 <div class="image-div">
                     <div>
                         <img class="profile-pic" [src]="profilePic" alt="" draggable="false">
                         <button class="edit" (click)="inputImage.click()" title="szerkesztés"><mat-icon>edit</mat-icon></button>
                     </div>
-                    <button class="upload-img" (click)="reloadPage()">mentés</button>
+                    <button class="upload-img" (click)="reloadPage()" title="frissítés"><mat-icon>refresh</mat-icon></button>
                 </div>
                 <div>
                     <p class="username"><span>felhasználó:</span>{{user.username}}</p>
                     <p class="email"><span>email:</span>{{user.email}}</p>
                 </div>
             </div>
-            <p class="wrong-format" id="wrong-format">Nem megfelelő fájlkiterjesztés!</p>
             <input #inputImage type="file" hidden (change)="updateProfilePic($event)">
         </article>
 

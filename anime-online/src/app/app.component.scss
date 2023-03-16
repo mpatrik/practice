@@ -18,15 +18,16 @@ mat-sidenav { background: #342b2b; }
 }
 
 .logo {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    background: linear-gradient(to bottom right, var(--white), var(--orange));
-    -webkit-background-clip: text;
-    color: transparent;
+    display: flex;
     cursor: pointer;
     margin-block: 1rem;
+    height: 3rem;
+    overflow: clip;
+}
+
+.logo img {
+    height: 9.5rem;
+    transform: translateY(-3.2rem);
 }
 
 .navigation {
@@ -201,6 +202,12 @@ mat-sidenav { background: #342b2b; }
     transform-origin: top;
     transition: .3s;
     z-index: 999;
+}
+
+.login-error {
+    color: var(--red);
+    margin: 0;
+    display: none;
 }
 
 .login-form {

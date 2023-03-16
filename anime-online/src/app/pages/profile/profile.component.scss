@@ -70,10 +70,14 @@ h1 {
 
 .upload-img {
     font-size: 1rem;
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
+    border-radius: 50%;
     background: #342b2b;
-    padding: .75rem 2rem;
+    height: 50px;
+    width: 50px;
     margin-block: 1rem 2rem;
     margin-inline: auto;
     opacity: .3;

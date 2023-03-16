@@ -62,7 +62,10 @@ main {
 }
 
 .image {
+    height: 420px;
     width: 300px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .title {
